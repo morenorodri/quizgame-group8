@@ -16,9 +16,8 @@ body {
     display: grid;
     grid-template-rows: auto 1fr auto;
     height: 100dvh;
+    font-family: "Inter", sans-serif;
 
-        font-family: "Inter", sans-serif;
-        background-color: #F5F5F5;    
 }
 
 
@@ -27,8 +26,7 @@ body {
 /************** header *************/
 header {
     display: flex;
-        /* outline kan kommenteras bort. Används för visuella skäl */
-        outline: .1rem solid;
+    background-color: var(--secondary);
 }
 
 nav {
@@ -53,7 +51,7 @@ nav {
 
 /************** main *************/
 main {
-
+    background-color: var(--surface);    
 }
 
 .main-wrapper {
@@ -70,7 +68,8 @@ footer {
     row-gap: 1rem;
     padding-bottom: .5rem;
         /* outline kan kommenteras bort. Används för visuella skäl */
-        outline: .1rem solid;
+        outline: .1rem solid #D9D9D9;
+
 }
 
 .foot-wrapper {
