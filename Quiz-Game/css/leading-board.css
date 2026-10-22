@@ -1,15 +1,107 @@
+/* =========================
+   Base layout
+========================= */
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
 main {
   min-width: 0;
 }
 
 .leaderboard {
-  min-height: 0;
   width: 100%;
   max-width: 42rem;
+  min-height: 0;
   margin: 0 auto;
   padding: 1.25rem 0.75rem;
   background-color: var(--surface);
 }
+
+/* =========================
+   Header and JS logo
+========================= */
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: var(--secondary);
+  color: var(--tertiary);
+}
+
+.js-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.25rem;
+  background-color: var(--primary);
+  color: var(--secondary);
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.header-button {
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--tertiary);
+  border-radius: 50%;
+  background-color: transparent;
+  color: var(--tertiary);
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.js-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.25rem;
+  background-color: var(--primary);
+  color: var(--secondary);
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.dark-mode-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--tertiary);
+  border-radius: 50%;
+  background-color: transparent;
+  color: var(--tertiary);
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.dark-mode-button:hover {
+  background-color: var(--primary);
+  color: var(--secondary);
+}
+
+/* =========================
+   Leaderboard title
+========================= */
 
 .leaderboard-title-card {
   display: flex;
@@ -25,17 +117,22 @@ main {
   text-align: center;
 }
 
-
-.leaderboard-title-card h1 {
+.leaderboard-title-card h1,
+.leaderboard-title-card h2 {
   margin: 0;
   font-size: 2rem;
 }
+
+/* =========================
+   Leaderboard list
+========================= */
 
 .leaderboard-list {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
   margin-top: 1rem;
+  padding: 0;
   list-style: none;
 }
 
@@ -49,7 +146,17 @@ main {
   border: 0.0625rem solid #e5e5e5;
   border-radius: 1rem;
   background-color: var(--tertiary);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
+
+.leaderboard-item:hover {
+  transform: translateY(-0.15rem);
+  box-shadow: 0 0.25rem 0.75rem #00000012;
+}
+
+/* Player rank circles */
 
 .player-rank {
   display: flex;
@@ -69,6 +176,7 @@ main {
   background-color: var(--primary);
   color: var(--secondary);
 }
+
 .second-place .player-rank {
   background-color: #1e1e1e;
 }
@@ -84,6 +192,8 @@ main {
 .fifth-place .player-rank {
   background-color: #999;
 }
+
+/* Player information */
 
 .player-info {
   display: flex;
@@ -113,141 +223,244 @@ main {
   white-space: nowrap;
 }
 
+/* =========================
+   Start-page button (S)
+========================= */
+
+a.back-button {
+  position: fixed;
+  bottom: 5.5rem;
+  left: 1rem;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--secondary);
+  border-radius: 50%;
+  background-color: var(--tertiary);
+  color: var(--secondary);
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+a.back-button:hover,
+a.back-button:focus-visible {
+  background-color: var(--secondary);
+  color: var(--tertiary);
+}
+
+/* =========================
+   Footer and social icons
+========================= */
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 4.5rem;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid var(--secondary);
+  background-color: var(--surface);
+}
+
+.foot-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.social-button {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 2.75rem;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--secondary);
+  border-radius: 50%;
+  background-color: var(--tertiary);
+  color: var(--secondary);
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+
+.social-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--secondary);
+  border-radius: 50%;
+  background-color: var(--tertiary);
+  color: var(--secondary);
+  font-size: 1.15rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.social-button:hover,
+.social-button:focus-visible {
+  background-color: var(--secondary);
+  color: var(--tertiary);
+}
+
+/* Share with friends tooltip */
+
+.social-button .tooltip {
+  position: absolute;
+  bottom: calc(100% + 0.5rem);
+  left: 50%;
+  z-index: 10;
+  padding: 0.4rem 0.6rem;
+  transform: translateX(-50%);
+  border-radius: 0.35rem;
+  background-color: var(--secondary);
+  color: var(--tertiary);
+  font-size: 0.75rem;
+  font-weight: 400;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease;
+}
+
+.social-button:hover .tooltip,
+.social-button:focus-visible .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.foot-mark {
+  margin: 0;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+/* =========================
+   Keyboard focus
+========================= */
+
+a:focus-visible {
+  outline: 0.15rem solid var(--secondary);
+  outline-offset: 0.2rem;
+}
+
+/* =========================
+   Small mobile screens
+========================= */
+/* Header: JS left, D right */
 .app-header {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  gap: 1rem;
+  justify-content: space-between;
+  width: 100%;
   padding: 1rem;
   background-color: var(--secondary);
   color: var(--tertiary);
 }
-.back-button {
-  border: none;
-  background: none;
-  color: var(--tertiary);
-  font-size: 1.75rem;
-  cursor: pointer;
-}
-.app-header h1 {
-  flex: 1;
-  margin: 0;
-  text-align: center;
-  font-size: 1.25rem;
-}
+
 .js-logo {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.25rem;
   background-color: var(--primary);
   color: var(--secondary);
-  font-size: 1.75rem;
+  font-size: 1.1rem;
   font-weight: 800;
 }
 
 .header-actions {
   display: flex;
-  gap: 0.75rem;
+  align-items: center;
+  margin-left: auto;
 }
 
 .header-button {
-  width: 3rem;
-  height: 3rem;
-  border: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--tertiary);
   border-radius: 50%;
-  background-color: #333;
+  background: transparent;
   color: var(--tertiary);
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   cursor: pointer;
 }
 
-.header-actions .header-button:first-child {
-  color: var(--primary);
-}
-
-.site-footer {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: start;
-  gap: 1rem;
-  padding: 1rem 1rem 1.5rem;
-  border: none;
-  outline: none;
-  color: #555;
-  font-size: 0.875rem;
-  padding: 1rem 1rem 1.5rem;
-  row-gap: 1.5rem;
-}
-
-.bottom-nav button {
-  width: 3.5rem;
-  height: 3.5rem;
-}
-
-.site-footer p {
-  grid-column: 1 / -1;
-  margin: 0;
-  text-align: center;
-}
-
-.menu-button {
+/* Footer: social icons centered */
+footer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.25rem;
-  width: 3.5rem;
-  height: 3.5rem;
-  padding: 0.5rem;
-  border: none;
-  border-radius: 50%;
-  background-color: #e5e5e5;
-  cursor: pointer;
-}
-
-.menu-button span {
-  position: relative;
-  width: 1.25rem;
-  height: 0.2rem;
-  border-radius: 0.125rem;
-  background-color: var(--secondary);
-}
-
-.menu-button span::before {
-  position: absolute;
-  left: -0.25rem;
-  width: 0.2rem;
-  height: 0.2rem;
-  border-radius: 50%;
-  background-color: var(--secondary);
-  content: "";
-}
-
-.bottom-nav {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
   gap: 0.5rem;
+  width: 100%;
+  padding: 1rem;
+  border-top: 1px solid var(--secondary);
+  background-color: var(--surface);
 }
 
-.bottom-nav button {
+.foot-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 3rem;
-  height: 3rem;
-  border: none;
-  border-radius: 50%;
-  background-color: #e5e5e5;
-  color: var(--secondary);
-  font-size: 1.25rem;
-  font-weight: 700;
-  cursor: pointer;
+  gap: 0.75rem;
+  width: 100%;
 }
 
+.social-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--secondary);
+  border-radius: 50%;
+  background-color: var(--tertiary);
+  color: var(--secondary);
+  font-size: 1.15rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.social-button:hover,
+.social-button:focus-visible {
+  background-color: var(--primary);
+  color: var(--secondary);
+}
+
+.foot-mark {
+  margin: 0;
+  font-size: 0.75rem;
+  text-align: center;
+}
 @media (max-width: 25rem) {
+  .leaderboard {
+    padding: 1rem 0.625rem;
+  }
+
   .leaderboard-item {
     gap: 0.5rem;
     padding: 0.625rem;
@@ -262,59 +475,64 @@ main {
     font-size: 0.875rem;
   }
 
-  .site-footer {
-    padding-right: 0.75rem;
-    padding-left: 0.75rem;
+  /* Footer social icons */
+  .foot-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
   }
 
-  .bottom-nav {
-    gap: 0.375rem;
+  .social-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 0.125rem solid var(--secondary);
+    border-radius: 50%;
+    background-color: var(--tertiary);
+    color: var(--secondary);
+    text-decoration: none;
+    font-size: 1.25rem;
   }
 
-  .menu-button,
-  .bottom-nav button {
-    width: 2.5rem;
-    height: 2.5rem;
+  .social-button:hover,
+  .social-button:focus-visible {
+    background-color: var(--primary);
   }
-}
-.back-button:hover {
-  color: var(--primary);
-  transform: translateX(-0.2rem);
-}
 
-.back-button {
-  transition: color 0.2s ease, transform 0.2s ease;
-}
-.leaderboard-item {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
+  /* Tooltip */
+  .tooltip {
+    position: absolute;
+    bottom: calc(100% + 0.5rem);
+    left: 50%;
+    z-index: 20;
+    width: max-content;
+    max-width: 10rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.375rem;
+    background-color: var(--secondary);
+    color: var(--tertiary);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate(-50%, 0.25rem);
+    transition:
+      opacity 0.2s ease,
+      visibility 0.2s ease,
+      transform 0.2s ease;
+  }
 
-.leaderboard-item:hover {
-  transform: translateY(-0.15rem);
-  box-shadow: 0 0.25rem 0.75rem #00000012;
-}
-.app-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.75rem 1rem;
-  background-color: var(--secondary);
-  color: var(--tertiary);
-}
-
-.back-button {
-  width: 3.5rem;
-  height: 3.5rem;
-  border: none;
-  background: transparent;
-  color: var(--tertiary);
-  font-size: 2.5rem;
-  cursor: pointer;
-}
-
-.app-header h1 {
-  flex: 1;
-  margin: 0;
-  text-align: center;
-  font-size: 1.25rem;
+  .social-button:hover .tooltip,
+  .social-button:focus-visible .tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+  }
 }

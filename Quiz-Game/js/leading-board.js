@@ -63,3 +63,18 @@ const backButton = document.querySelector("#back-button");
 backButton.addEventListener("click", () => {
   window.history.back();
 });
+
+
+const themeToggle = document.querySelector("#theme-toggle");
+
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    const isDark = document.documentElement.classList.toggle("dark-mode");
+
+    themeToggle.setAttribute("aria-pressed", String(isDark));
+    themeToggle.setAttribute(
+      "aria-label",
+      isDark ? "Switch to light mode" : "Switch to dark mode"
+    );
+  });
+}
