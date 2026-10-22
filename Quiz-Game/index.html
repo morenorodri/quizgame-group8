@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Quiz-Game/css/base.css">
+    <link rel="stylesheet" href="/Quiz-Game/css/index.css">
 
     <title> Quiz Game By Group 8 </title>
 </head>
@@ -14,19 +15,52 @@
             <div class="small-img-frame">
                 <img src="#" alt="#">
             </div>
-            <button class="button-round dark-mode"> D </button>
-            <button class="button-round"> I </button>
+            <button class="button-round"> D </button>
+            <button class="button-round" popovertarget="popupInfo" popovertargetaction="toggle">
+                <img src="/Quiz-Game/img/questionmark-icon.svg" class="questionmark-image" alt="">
+            </button>
         </nav>
     </header>
 
 
+
     <main>
         <div class="main-wrapper">
-            content
+            <div class="popup-info" id="popupInfo" popover="">
+                <div class="popup-info-content">
+                    <p> Lorem ipsum dolor sit amet </p>
+                    <span> 
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                        Quisquam, laborum. Distinctio delectus possimus iste quos 
+                        at asperiores omnis officiis minus, aspernatur veritatis, 
+                        odit, ea blanditiis perspiciatis fugit eum. Modi, maxime. 
+                    </span>
+                </div>
+            </div>
+            <div class="logo-big-frame">
+                <img src="#" alt="a modified logotype of JavaScript">
+            </div>
+            <form class="form-player-name" id="formPlayerName" action="#">
+                <div class="error-line js-errorLine">
+                    <span class="error-small-frame">
+                        <img src="/Quiz-Game/img/attention-icon.svg" class="warning-small-icon" alt="">
+                    </span>
+                    <span class="error-text" role="alert" id="error-playerName"> attenction! </span>     
+                </div>
+
+                <div class="name-field">
+                    <label class="hide-label-line" for="inputPlayerName"> name: </label>
+                    <input type="text" name="name" class="input-name" id="inputPlayerName" placeholder="Type in your name here" aria-describedby="error-playerName" autocomplete="off">
+                </div>
+                <button type="submit" class="button-submit-name" id="buttonSubmitName">
+                    <span> Start Quiz </span>
+                </button>
+            </form>
         </div>
     </main>
 
 
+    
     <footer>
         <div class="foot-wrapper">
             <button class="button-round toplist-btn"> L </button>
@@ -37,5 +71,8 @@
         <span class="foot-mark"> Quiz-game by group 8 </span>
     </footer>
 
+
+    
+    <script src="/Quiz-Game/js/index.js"></script>
 </body>
 </html>
