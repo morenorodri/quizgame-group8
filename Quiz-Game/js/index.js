@@ -8,29 +8,23 @@ const buttonSubmitName = document.querySelector("#buttonSubmitName");
 
 
 /*** events ***/
-inputPlayerName.addEventListener("focus", (event) => { 
-    focusInputField()
-});
-inputPlayerName.addEventListener("blur", (event) => { 
-    blurInputField()
-});
+inputPlayerName.addEventListener("focus", focusInputField);
+inputPlayerName.addEventListener("blur", blurInputField);
 
 buttonSubmitName.addEventListener("click", (event) => { 
     event.preventDefault(); 
-    startQuiz();
+    getPlayerName();
 });
 
 
 
 /*** variables ***/
-let playerDetails = [];
 const playing = true;
 
 
+
 /*** functions ***/
-function focusInputField() {
-    inputPlayerName.placeholder = "";
-}
+function focusInputField() { inputPlayerName.placeholder = ""; }
 
 function blurInputField() {
     if (inputPlayerName.value === "") {
@@ -40,34 +34,31 @@ function blurInputField() {
 }
 
 
-function startQuiz() {
-    const submitPlayerName = inputPlayerName.value.trim();
+function getPlayerName() {
+    const submitPlayerName = inputPlayerName.value.trim().replace(/\s+/g, ' ');
     const validPattern = /^[a-zA-Z0-9åäöÅÄÖ\s]+$/;
-    console.log(submitPlayerName);
+    let attentionMessage = "";
 
     if (playing) {
-        /* show a attention text */
-        if (submitPlayerName === "") {
-            attentionContent.style.visibility = "visible";
-            attentionLine.textContent = "Please, type in a name";
+        // check if a name is valid
+        if (!submitPlayerName) {
+            attentionMessage = "Please, type in a name";
 
         } else if (!validPattern.test(submitPlayerName)) {
+            attentionMessage = "Only letters and numbers are allowed";
+        }
+
+        // show a attention text if name not valid or handle the name
+        if (attentionMessage) {
+            attentionLine.textContent = attentionMessage;
             attentionContent.style.visibility = "visible";
-            attentionLine.textContent = "Only letters and numbers are allowed";
-        
-        } else { 
-            /* create a new player item */
-            playerDetails.push({
-                playerId: playerDetails.length + 1,
-                playerName: submitPlayerName,
-                correctAnswers: 0,
-                gamePoints: 0,
-            });
+
+        } else {
+            // player named saved in localStorge for to be handle in the next quiz page
+            localStorage.setItem("playerName", submitPlayerName);
 
             inputPlayerName.value = "";
             attentionContent.style.visibility = "hidden";
-        };
+        }
     };
-
-    console.log(playerDetails);
 }

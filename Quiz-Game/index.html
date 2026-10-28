@@ -15,8 +15,9 @@
             <div class="small-img-frame">
                 <img src="#" alt="#">
             </div>
-            <button class="button-round"> D </button>
-            <button class="button-round" popovertarget="popupInfo" popovertargetaction="toggle">
+            <button type="button" class="button-round"> D </button>
+            <!-- show/hide popover field -->
+            <button type="button" class="button-round" popovertarget="popupInfo" popovertargetaction="toggle" aria-label="open the popover menu">
                 <img src="/Quiz-Game/img/questionmark-icon.svg" class="questionmark-image" alt="">
             </button>
         </nav>
@@ -26,30 +27,37 @@
 
     <main>
         <div class="main-wrapper">
-            <div class="popup-info" id="popupInfo" popover="">
+            <!-- A popover box that shows/hides by clicking the questionmark button -->
+            <div class="popup-info" id="popupInfo" popover>
                 <div class="popup-info-content">
                     <p> Lorem ipsum dolor sit amet </p>
-                    <span> 
+                    <p> 
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
                         Quisquam, laborum. Distinctio delectus possimus iste quos 
                         at asperiores omnis officiis minus, aspernatur veritatis, 
                         odit, ea blanditiis perspiciatis fugit eum. Modi, maxime. 
-                    </span>
+                    </p>
                 </div>
             </div>
+
+            <!-- image logo frame -->
             <div class="logo-big-frame">
                 <img src="#" alt="a modified logotype of JavaScript">
             </div>
+
+            <!-- form field -->
             <form class="form-player-name" id="formPlayerName" action="#">
+                <!-- attention text that shows up when something now right -->
                 <div class="error-line js-errorLine">
                     <span class="error-small-frame">
                         <img src="/Quiz-Game/img/attention-icon.svg" class="warning-small-icon" alt="">
                     </span>
-                    <span class="error-text" role="alert" id="error-playerName"> attenction! </span>     
+                    <p class="error-text" role="alert" id="error-playerName"> attention! </p>     
                 </div>
 
+                <!-- input field -->
                 <div class="name-field">
-                    <label class="hide-label-line" for="inputPlayerName"> name: </label>
+                    <label class="hide-label-line" for="inputPlayerName"> Your name: </label>
                     <input type="text" name="name" class="input-name" id="inputPlayerName" placeholder="Type in your name here" aria-describedby="error-playerName" autocomplete="off">
                 </div>
                 <button type="submit" class="button-submit-name" id="buttonSubmitName">
@@ -63,14 +71,13 @@
     
     <footer>
         <div class="foot-wrapper">
-            <button class="button-round toplist-btn"> L </button>
-            <button class="button-round"> I </button>
-            <button class="button-round"> F </button>
-            <button class="button-round"> G </button>
+            <button type="button" class="button-round toplist-btn"> L </button>
+            <button type="button" class="button-round"> I </button>
+            <button type="button" class="button-round"> F </button>
+            <button type="button" class="button-round"> G </button>
         </div>
-        <span class="foot-mark"> Quiz-game by group 8 </span>
+        <p class="foot-mark"> Quiz-game by group 8 </p>
     </footer>
-
 
     
     <script src="/Quiz-Game/js/index.js"></script>
