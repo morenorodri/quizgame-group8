@@ -39,7 +39,7 @@ main {
         align-items: center;
         column-gap: .5rem;
             position: absolute;
-            top: -2rem;
+            top: -2.5rem;
             visibility: hidden;
 
         .error-small-frame {

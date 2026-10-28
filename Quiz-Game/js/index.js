@@ -9,6 +9,7 @@ const buttonSubmitName = document.querySelector("#buttonSubmitName");
 
 /*** events ***/
 inputPlayerName.addEventListener("focus", focusInputField);
+// inputPlayerName.addEventListener("click", clickInputField);
 inputPlayerName.addEventListener("blur", blurInputField);
 
 buttonSubmitName.addEventListener("click", (event) => { 
@@ -24,8 +25,8 @@ const playing = true;
 
 
 /*** functions ***/
+// function clickInputField() { inputPlayerName.style.outline = "none"; }
 function focusInputField() { inputPlayerName.placeholder = ""; }
-
 function blurInputField() {
     if (inputPlayerName.value === "") {
         inputPlayerName.placeholder = "Type in your name here"; 
@@ -37,28 +38,30 @@ function blurInputField() {
 function getPlayerName() {
     const submitPlayerName = inputPlayerName.value.trim().replace(/\s+/g, ' ');
     const validPattern = /^[a-zA-Z0-9åäöÅÄÖ\s]+$/;
-    let attentionMessage = "";
 
     if (playing) {
         // check if a name is valid
         if (!submitPlayerName) {
-            attentionMessage = "Please, type in a name";
+            attentionText("Please, type in a name");
+            return;
 
         } else if (!validPattern.test(submitPlayerName)) {
-            attentionMessage = "Only letters and numbers are allowed";
+            attentionText("Only letters and numbers are allowed");
+            return;
         }
 
         // show a attention text if name not valid or handle the name
-        if (attentionMessage) {
-            attentionLine.textContent = attentionMessage;
+        function attentionText(message) {
+            attentionLine.textContent = message;
             attentionContent.style.visibility = "visible";
-
-        } else {
-            // player named saved in localStorge for to be handle in the next quiz page
-            localStorage.setItem("playerName", submitPlayerName);
-
-            inputPlayerName.value = "";
-            attentionContent.style.visibility = "hidden";
         }
+        
+
+        // player named saved in localStorge for to be handle in the next quiz page
+        localStorage.setItem("playerName", submitPlayerName);
+        inputPlayerName.value = "";
+        attentionContent.style.visibility = "hidden";
+        
+        // fetchQuestionApi() module?
     };
 }

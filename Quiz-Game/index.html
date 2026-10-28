@@ -15,10 +15,12 @@
             <div class="small-img-frame">
                 <img src="#" alt="#">
             </div>
-            <button type="button" class="button-round"> D </button>
+            <button type="button" class="button-round"> 
+                <img src="./img/moon-dark-icon.svg" alt=""> 
+            </button>
             <!-- show/hide popover field -->
-            <button type="button" class="button-round" popovertarget="popupInfo" popovertargetaction="toggle" aria-label="open the popover menu">
-                <img src="/Quiz-Game/img/questionmark-icon.svg" class="questionmark-image" alt="">
+            <button type="button" class="button-round" id="openDialogInfo" aria-label="open the popover menu">
+                <img src="./img/info-dark-icon.svg" class="info-image" alt="">
             </button>
         </nav>
     </header>
@@ -28,7 +30,7 @@
     <main>
         <div class="main-wrapper">
             <!-- A popover box that shows/hides by clicking the questionmark button -->
-            <div class="popup-info" id="popupInfo" popover>
+            <dialog class="popup-info" id="dialogInfo">
                 <div class="popup-info-content">
                     <p> Lorem ipsum dolor sit amet </p>
                     <p> 
@@ -37,8 +39,9 @@
                         at asperiores omnis officiis minus, aspernatur veritatis, 
                         odit, ea blanditiis perspiciatis fugit eum. Modi, maxime. 
                     </p>
+                    <button type="button" id="closeDialogInfo"> close </button>
                 </div>
-            </div>
+            </dialog>
 
             <!-- image logo frame -->
             <div class="logo-big-frame">
@@ -71,15 +74,18 @@
     
     <footer>
         <div class="foot-wrapper">
-            <button type="button" class="button-round toplist-btn"> L </button>
-            <button type="button" class="button-round"> I </button>
-            <button type="button" class="button-round"> F </button>
-            <button type="button" class="button-round"> G </button>
+            <a href="#" class="button-round toplist-btn">
+                <img src="./img/list-dark-icon.svg" alt="">    
+            </a>
+            <a href="#" class="button-round"> <img src="./img/github-dark-icon.svg" alt=""> </a>
+            <a href="#" class="button-round"> <img src="./img/figma-dark-icon.svg" alt=""> </a>
+            <a href="#" class="button-round"> <img src="./img/instagram-dark-icon.svg" alt=""> </a>
         </div>
         <p class="foot-mark"> Quiz-game by group 8 </p>
     </footer>
 
     
+    <script src="./js/base.js"></script>
     <script src="/Quiz-Game/js/index.js"></script>
 </body>
 </html>
