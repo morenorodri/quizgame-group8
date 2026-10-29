@@ -7,6 +7,8 @@ const questionText = document.querySelector(".question");
 const answerButtons = document.querySelectorAll(".answer");
 const questionCounter = document.querySelector(".question-count");
 
+const closeButton = document.querySelector(".close-btn");
+
 let remaining = duration;
 let timer;
 
@@ -111,3 +113,18 @@ function finishQuiz() {
     console.log("Score:", totalScore);
     window.location.href = "result.html";
 }
+
+closeButton.addEventListener("click", () => {
+    clearInterval(timer);
+
+    remaining = duration;
+    currentQuestion = 0;
+    questionCounterNumber = 1;
+    questionsCorrect = 0;
+    totalScore = 0;
+
+    timerText.textContent = `${duration}s`;
+    timerProgress.style.animation = "none";
+
+    window.location.href = "index.html";
+});
