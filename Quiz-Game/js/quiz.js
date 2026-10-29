@@ -94,6 +94,18 @@ function checkAnswer(answerIndex) {
 
 function finishQuiz() {
     clearInterval(timer);
+
+    const player = {
+        playerName: localStorage.getItem("playerName"),
+        totalScore: totalScore,
+        questionsCorrect: questionsCorrect
+    }
+
+    let playerStats = JSON.parse(localStorage.getItem("playerStats")) || [];
+    playerStats.push(player);
+
+    localStorage.setItem("playerStats", JSON.stringify(playerStats))
+    
     console.log("Quiz finished!");
     console.log("Correct:", questionsCorrect);
     console.log("Score:", totalScore);
