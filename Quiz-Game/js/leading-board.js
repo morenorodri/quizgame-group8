@@ -8,9 +8,10 @@ players.sort((a, b) => b.score - a.score);
 
 // Show a message if there are no players
 if (players.length === 0) {
-  leaderBoard.innerHTML = 
+  leaderBoard.innerHTML = `
     <p>No players yet.</p>
-    <a href="index.html">Play a quiz</a>
+    <a href="./index.html" class="play-quiz-link">Play a quiz again</a>
+  `;
 } else {
   // Display each player
   players.forEach((player, index) => {
@@ -61,7 +62,7 @@ if (players.length === 0) {
 }
 
 // Back button
-const backButton = document.querySelector("#back-button");
+const backButton = document.querySelector(".back-button");
 
 if (backButton) {
   backButton.addEventListener("click", () => {
