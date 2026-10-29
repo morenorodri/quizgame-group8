@@ -429,3 +429,10 @@ header {
   outline: none;
   border: none;
 }
+.play-quiz-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--secondary);
+  font-weight: bold;
+  text-decoration: underline;
+}
