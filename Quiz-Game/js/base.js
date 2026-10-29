@@ -44,11 +44,11 @@ function toggleTheme() {
 function setDarkMode() {
     themeToggle.setAttribute("aria-pressed", true);
     document.body.classList.add("dark-mode");
-    themeToggle.innerHTML = `<img src="./img/sun-dark-icon.svg" alt="a sun for light mode switch"> `;
+    themeToggle.innerHTML = `<img src="./img/sun-light-icon.svg" alt="a sun for light mode switch"> `;
 }
 
 function setLightMode() {
     themeToggle.setAttribute("aria-pressed", false);
     document.body.classList.remove("dark-mode");
-    themeToggle.innerHTML = `<img src="./img/moon-dark-icon.svg" alt="a moon for dark mode switch"> `;    
+    themeToggle.innerHTML = `<img src="./img/moon-light-icon.svg" alt="a moon for dark mode switch"> `;    
 }
