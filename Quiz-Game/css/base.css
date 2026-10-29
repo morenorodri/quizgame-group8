@@ -49,7 +49,7 @@ nav {
 
 /************** main *************/
 main {
-
+    background-color: var(--surface);    
 }
 
 .main-wrapper {
