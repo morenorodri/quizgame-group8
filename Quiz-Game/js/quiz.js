@@ -1,47 +1,62 @@
-// Timer
+
 const duration = 20;
-
 const timerText = document.querySelector(".timer-text");
-
-let remaining = duration;
-
-function updateTimer() {
-    timerText.textContent = `${remaining}s`;
-
-    if (remaining <= 0) {
-        clearInterval(timer);
-        return;
-    }
-
-    remaining--;
-}
-
-const timer = setInterval(updateTimer, 1000);
-
-updateTimer();
-
-// The quiz
-let questions = [];
-let currentQuestion = 0;
-let score = 0;
+const timerProgress = document.querySelector(".timer-progress");
 
 const questionText = document.querySelector(".question");
 const answerButtons = document.querySelectorAll(".answer");
+const questionCounter = document.querySelector(".question-count");
+
+let remaining = duration;
+let timer;
+
+let questions = [];
+let currentQuestion = 0;
+let questionCounterNumber = 1;
+let questionsCorrect = 0;
+let totalScore = 0;
+
+function startTimer() {
+    clearInterval(timer);
+
+    remaining = duration;
+    timerText.textContent = `${remaining}s`;
+
+    timerProgress.style.animation = "none";
+    timerProgress.offsetHeight;
+    timerProgress.style.animation = `timerFlow ${duration}s linear forwards`;
+    timer = setInterval(() => {
+        remaining--;
+        timerText.textContent = `${remaining}s`;
+
+        if (remaining <= 0) {
+            clearInterval(timer);
+
+            currentQuestion++;
+            questionCounterNumber++;
+            if (currentQuestion < questions.length) {
+                showQuestion();
+            } else {
+                finishQuiz();
+            }
+        }
+    }, 1000);
+}
 
 async function loadQuestions() {
     const response = await fetch("questions.json");
     const data = await response.json();
 
-
     questions = data;
     showQuestion();
 }
-loadQuestions()
+loadQuestions();
 
 function showQuestion() {
     const question = questions[currentQuestion];
 
     questionText.textContent = question.question;
+    questionCounter.textContent = `Question ${questionCounterNumber} / 10`;
 
     answerButtons.forEach((button, index) => {
         button.textContent = question.answers[index];
@@ -50,19 +65,25 @@ function showQuestion() {
             checkAnswer(index);
         };
     });
+    startTimer();
 }
 
-
 function checkAnswer(answerIndex) {
+    clearInterval(timer);
 
     const question = questions[currentQuestion];
 
     if (answerIndex === question.correct) {
-        score++;
+        questionsCorrect++;
+
+        const questionScore = remaining;
+        totalScore += questionScore;
+
+        console.log(totalScore);
     }
 
     currentQuestion++;
-
+    questionCounterNumber++;
     if (currentQuestion < questions.length) {
         showQuestion();
     } else {
@@ -72,6 +93,8 @@ function checkAnswer(answerIndex) {
 
 
 function finishQuiz() {
+    clearInterval(timer);
     console.log("Quiz finished!");
-    console.log("Score:", score);
+    console.log("Correct:", questionsCorrect);
+    console.log("Score:", totalScore);
 }
