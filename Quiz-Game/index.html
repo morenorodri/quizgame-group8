@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Quiz-Game/css/base.css">
+    <link rel="stylesheet" href="/Quiz-Game/css/index.css">
 
     <title> Quiz Game By Group 8 </title>
 </head>
@@ -14,28 +15,77 @@
             <div class="small-img-frame">
                 <img src="#" alt="#">
             </div>
-            <button class="button-round dark-mode"> D </button>
-            <button class="button-round"> I </button>
+            <button type="button" class="button-round"> 
+                <img src="./img/moon-dark-icon.svg" alt=""> 
+            </button>
+            <!-- show/hide popover field -->
+            <button type="button" class="button-round" id="openDialogInfo" aria-label="open the popover menu">
+                <img src="./img/info-dark-icon.svg" class="info-image" alt="">
+            </button>
         </nav>
     </header>
 
 
+
     <main>
         <div class="main-wrapper">
-            content
+            <!-- A popover box that shows/hides by clicking the questionmark button -->
+            <dialog class="popup-info" id="dialogInfo">
+                <div class="popup-info-content">
+                    <p> Lorem ipsum dolor sit amet </p>
+                    <p> 
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                        Quisquam, laborum. Distinctio delectus possimus iste quos 
+                        at asperiores omnis officiis minus, aspernatur veritatis, 
+                        odit, ea blanditiis perspiciatis fugit eum. Modi, maxime. 
+                    </p>
+                    <button type="button" id="closeDialogInfo"> close </button>
+                </div>
+            </dialog>
+
+            <!-- image logo frame -->
+            <div class="logo-big-frame">
+                <img src="#" alt="a modified logotype of JavaScript">
+            </div>
+
+            <!-- form field -->
+            <form class="form-player-name" id="formPlayerName" action="#">
+                <!-- attention text that shows up when something now right -->
+                <div class="error-line js-errorLine">
+                    <span class="error-small-frame">
+                        <img src="/Quiz-Game/img/attention-icon.svg" class="warning-small-icon" alt="">
+                    </span>
+                    <p class="error-text" role="alert" id="error-playerName"> attention! </p>     
+                </div>
+
+                <!-- input field -->
+                <div class="name-field">
+                    <label class="hide-label-line" for="inputPlayerName"> Your name: </label>
+                    <input type="text" name="name" class="input-name" id="inputPlayerName" placeholder="Type in your name here" aria-describedby="error-playerName" autocomplete="off">
+                </div>
+                <button type="submit" class="button-submit-name" id="buttonSubmitName">
+                    <span> Start Quiz </span>
+                </button>
+            </form>
         </div>
     </main>
 
 
+    
     <footer>
         <div class="foot-wrapper">
-            <button class="button-round toplist-btn"> L </button>
-            <button class="button-round"> I </button>
-            <button class="button-round"> F </button>
-            <button class="button-round"> G </button>
+            <a href="#" class="button-round toplist-btn">
+                <img src="./img/list-dark-icon.svg" alt="">    
+            </a>
+            <a href="#" class="button-round"> <img src="./img/github-dark-icon.svg" alt=""> </a>
+            <a href="#" class="button-round"> <img src="./img/figma-dark-icon.svg" alt=""> </a>
+            <a href="#" class="button-round"> <img src="./img/instagram-dark-icon.svg" alt=""> </a>
         </div>
-        <span class="foot-mark"> Quiz-game by group 8 </span>
+        <p class="foot-mark"> Quiz-game by group 8 </p>
     </footer>
 
+    
+    <script src="./js/base.js"></script>
+    <script src="/Quiz-Game/js/index.js"></script>
 </body>
 </html>

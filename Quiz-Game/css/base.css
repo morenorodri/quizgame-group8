@@ -94,8 +94,10 @@ footer {
 /************** featuring *************/
 /* buttons */
 .button-round {
-    border-radius: 50%;
+    display: flex;
+    padding: .5rem;
     border: none;
+    border-radius: 50%;
     width: 3rem; height: 3rem;
         cursor: pointer;
         /* outline kan kommenteras bort. Används för visuella skäl */
@@ -104,4 +106,13 @@ footer {
 
 .toplist-btn {
     margin-right: auto;
+}
+
+
+button:focus-visible,
+a:focus-visible,
+label:focus-visible,
+input:focus-visible {
+    outline: .25rem solid;
+    outline-offset: .25rem;
 }

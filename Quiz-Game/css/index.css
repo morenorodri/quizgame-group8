@@ -1,0 +1,129 @@
+/********** content **********/
+main {
+    padding-top: 4rem ;
+
+    .main-wrapper {
+        display: flex;
+        flex-direction: column;
+        row-gap: 4rem;
+        align-items: center;
+
+        padding: 0rem .5rem; /* change later in base.css */
+        position: relative;
+    }
+}
+
+
+
+/************** featuring *************/
+.logo-big-frame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12.5rem; height: 12.5rem;
+        outline: .1rem solid;
+}
+
+
+.form-player-name {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    width: 100%;
+        position: relative;
+
+    
+    /* error line of text */
+    .error-line {
+        display: flex;
+        align-items: center;
+        column-gap: .5rem;
+            position: absolute;
+            top: -2.5rem;
+            visibility: hidden;
+
+        .error-small-frame {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: .125rem;
+            border: .1rem solid;
+            border-radius: 50%;
+            width: 1.5rem; height: 1.5rem;
+
+            .warning-small-icon {
+                width: 100%;
+            }
+        }
+
+        .error-text {
+                font-size: .75rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: .05rem;
+        };
+    }
+
+
+    /* input player name text */
+    .name-field {
+        display: flex;
+        flex-direction: column;
+        row-gap: .5rem;
+
+        .hide-label-line {
+            display: none;
+        }
+
+        .input-name {
+            padding: .75rem 0rem;
+            border: .1rem solid;
+            border-radius: .5rem;
+                font-size: 1.25rem;
+                font-weight: 500;
+                line-height: 1rem;
+                letter-spacing: .05rem;
+                text-align: center;
+        }
+    }
+
+
+    /* button submit */
+    .button-submit-name {
+        padding: .75rem 0rem;
+        border: .1rem solid;
+        border-radius: .5rem;
+            cursor: pointer;
+
+        span {
+                font-size: 1.5rem;
+                font-weight: 600;
+                line-height: 1;
+                letter-spacing: .05rem;
+        }
+    }
+
+}
+
+
+/* images */
+.questionmark-image {
+    width: 1.5rem; height: 1.5rem;
+}
+
+/* others */
+.popup-info {
+    padding: 1rem;
+    border: .1rem solid;
+        background-color: var(--surface);
+        position: absolute;
+        top: 4rem;
+        margin: 0 auto;
+
+    .popup-info-content {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
+    }    
+
+}
