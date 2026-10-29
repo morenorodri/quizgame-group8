@@ -1,11 +1,5 @@
 
-const players = [
-  { name: "Player 1", correct: 8, score: 800 },
-  { name: "Player 2", correct: 7, score: 700 },
-  { name: "Player 3", correct: 6, score: 600 },
-  { name: "Player 4", correct: 5, score: 500 },
-  { name: "Player 5", correct: 4, score: 400 }
-];
+const players = JSON.parse(localStorage.getItem("players")) || [];
 
 const leaderBoard = document.querySelector("#leaderboard-list");
 
@@ -23,7 +17,7 @@ players.forEach((player, index) => {
   rank.textContent = index + 1;
   rank.classList.add("player-rank");
 
-  
+  //players info
   const playerInfo = document.createElement("div");
   playerInfo.classList.add("player-info");
 
@@ -38,7 +32,7 @@ players.forEach((player, index) => {
   const score = document.createElement("span");
   score.textContent = `${player.score} Points`;
   score.classList.add("player-score");
-
+//players rank
   if (index === 0) {
     item.classList.add("first-place");
   } else if (index === 1) {
@@ -58,13 +52,9 @@ players.forEach((player, index) => {
   leaderBoard.append(item);
 });
 
-const backButton = document.querySelector("#back-button");
-
-backButton.addEventListener("click", () => {
-  window.history.back();
-});
 
 
+//dark mode
 const themeToggle = document.querySelector("#theme-toggle");
 
 if (themeToggle) {
