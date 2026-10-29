@@ -105,8 +105,9 @@ function finishQuiz() {
     playerStats.push(player);
 
     localStorage.setItem("playerStats", JSON.stringify(playerStats))
-    
+
     console.log("Quiz finished!");
     console.log("Correct:", questionsCorrect);
     console.log("Score:", totalScore);
+    window.location.href = "result.html";
 }
