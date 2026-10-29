@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/result.css">
+
+    <script type="module" src="../js/result.js"></script>
+
+    <title>Quiz Result</title>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav class="naw-wrapper">
+
+            <div class="small-img-frame">
+                <img src="img/js-logo.png" alt="JavaScript logo">
+            </div>
+
+            <button class="button-round dark-mode" type="button" aria-label="Dark mode">
+                <img src="img/moon.png" alt="">
+            </button>
+
+            <button class="button-round" type="button" aria-label="Help">
+                <img src="img/question.png" alt="">
+            </button>
+
+        </nav>
+    </header>
+
+    <!-- Main content -->
+    <main>
+        <div class="main-wrapper">
+
+            <section class="result-card">
+
+                <img class="trophy-img" src="img/trophy(1).png" alt="Winner trophy">
+
+                <h1>
+                    Great Job,<br>
+                    <span id="player-name">Player</span>!
+                </h1>
+
+                <div class="score-box">
+
+                    <div class="score">
+                        <h2 id="correct-answers">0 / 10</h2>
+                        <p>Correct</p>
+                    </div>
+
+                    <div class="score">
+                        <h2 id="total-points">0</h2>
+                        <p>Points</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- Result buttons -->
+            <div class="result-buttons">
+
+                <a href="./leading-board.html" class="join-btn">
+                    <span>Join The Score Table</span>
+                    <img src="img/arrow-right.png" alt="">
+                </a>
+
+                <a href="./index.html" class="restart-btn">
+                    <span>New Round</span>
+                    <img src="img/restart.png" alt="">
+                </a>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="foot-wrapper">
+
+            <a href="./leading-board.html" class="button-round toplist-btn" aria-label="Leaderboard">
+                <img src="img/menu.png" alt="">
+            </a>
+
+            <button class="button-round" type="button">I</button>
+            <button class="button-round" type="button">T</button>
+            <button class="button-round" type="button">F</button>
+
+        </div>
+        
+        
+    </footer>
+
+</body>
+</html>
