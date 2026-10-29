@@ -62,6 +62,6 @@ function getPlayerName() {
         inputPlayerName.value = "";
         attentionContent.style.visibility = "hidden";
         
-        // fetchQuestionApi() module?
+        window.location.href = "quiz.html";
     };
 }

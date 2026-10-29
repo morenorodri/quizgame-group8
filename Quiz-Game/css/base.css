@@ -1,98 +1,118 @@
 :root {
-  --surface: #f5f5f5;
-  --primary: #f7df1e;
-  --secondary: #1e1e1e;
-  --tertiary: #ffffff;
+    --surface: #F5F5F5;
+    --primary: #F7DF1E;
+    --secondary: #1E1E1E;
+    --tertiary: #FFFFFF;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
 
 body {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  height: 100dvh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: 100dvh;
 
-  font-family: "Inter", sans-serif;
-  background-color: #f5f5f5;
+        font-family: "Inter", sans-serif;
+        background-color: #F5F5F5;    
 }
+
+
 
 /********** Shared Blocks **********/
 /************** header *************/
 header {
-  display: flex;
-  /* outline kan kommenteras bort. Används för visuella skäl */
-  outline: 0.1rem solid;
+    display: flex;
+        /* outline kan kommenteras bort. Används för visuella skäl */
+        outline: .1rem solid;
 }
 
 nav {
-  display: flex;
-  column-gap: 0.5rem;
-  justify-content: end;
-  padding: 1rem 0.5rem 0rem;
-  width: 100%;
+    display: flex;
+    column-gap: .5rem;
+    justify-content: end;
+    padding: 1rem .5rem 0rem;
+    width: 100%;
 }
 
 .small-img-frame {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 3rem;
-  height: 3rem;
-  margin-right: auto;
-  /* outline kan kommenteras bort. Används för visuella skäl */
-  outline: 0.1rem solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem; height: 3rem;
+    margin-right: auto;
+        /* outline kan kommenteras bort. Används för visuella skäl */
+        outline: .1rem solid;
 }
+
+
 
 /************** main *************/
 main {
-    background-color: var(--surface);    
+
 }
 
 .main-wrapper {
-  padding: 0rem 0.25rem;
+    padding: 0rem .25rem;
 }
+
+
+
 
 /************** footer *************/
 footer {
-  display: flex;
-  flex-direction: column;
-  row-gap: 1rem;
-  padding-bottom: 0.5rem;
-  /* outline kan kommenteras bort. Används för visuella skäl */
-  outline: 0.1rem solid;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    padding-bottom: .5rem;
+        /* outline kan kommenteras bort. Används för visuella skäl */
+        outline: .1rem solid;
 }
 
 .foot-wrapper {
-  display: flex;
-  column-gap: 0.5rem;
-  justify-content: end;
-  padding: 0rem 0.5rem;
-  width: 100%;
+    display: flex;
+    column-gap: .5rem;
+    justify-content: end;
+    padding: 0rem .5rem;
+    width: 100%;
 }
 
 .foot-mark {
-  font-size: 0.75rem;
-  font-weight: 300;
-  line-height: 1;
-  text-align: center;
+        font-size: .75rem;
+        font-weight: 300;
+        line-height: 1;
+        text-align: center;
 }
+
+
+
 
 /************** featuring *************/
 /* buttons */
 .button-round {
-  border-radius: 50%;
-  border: none;
-  width: 3rem;
-  height: 3rem;
-  cursor: pointer;
-  /* outline kan kommenteras bort. Används för visuella skäl */
-  outline: 0.1rem solid;
+    display: flex;
+    padding: .5rem;
+    border: none;
+    border-radius: 50%;
+    width: 3rem; height: 3rem;
+        cursor: pointer;
+        /* outline kan kommenteras bort. Används för visuella skäl */
+        outline: .1rem solid;
 }
 
 .toplist-btn {
-  margin-right: auto;
+    margin-right: auto;
+}
+
+
+button:focus-visible,
+a:focus-visible,
+label:focus-visible,
+input:focus-visible {
+    outline: .25rem solid;
+    outline-offset: .25rem;
 }
