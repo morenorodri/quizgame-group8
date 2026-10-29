@@ -1,30 +1,96 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="./css/base.css" />
-    <link rel="stylesheet" href="./css/leading-board.css" />
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/leading-board.css">
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
     <script src="./js/leading-board.js" defer></script>
 
     <title>Leaderboard</title>
   </head>
 
   <body>
+    <!-- Header -->
     <header class="app-header">
-      <button class="back-button" aria-label="Go back">←</button>
-      <h1>Leaderboard</h1>
+      <div class="js-logo" role="img" aria-label="JavaScript logo">
+        JS
+      </div>
+
+      <button
+        class="header-button"
+        id="theme-toggle"
+        type="button"
+        aria-label="Switch to dark mode"
+        aria-pressed="false"
+      >
+        D
+      </button>
     </header>
 
+    <!-- Main leaderboard -->
     <main class="leaderboard">
       <section class="leaderboard-title-card">
-        <h2>Top Players</h2>
+        <h1>Top Players</h1>
       </section>
 
       <ol class="leaderboard-list" id="leaderboard-list"></ol>
     </main>
-    <button class="back-button" id="back-button" aria-label="Go back">←</button>
-    <footer></footer>
+
+    <!-- Back to start page -->
+    <a
+      href="./index.html"
+      class="back-button"
+      aria-label="Back to start"
+    >
+      &times;
+    </a>
+
+    <!-- Footer -->
+    <footer>
+      <div class="foot-wrapper">
+        <a
+          class="button-round social-button"
+          href="https://www.instagram.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+        >
+          <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          <span class="tooltip">Share with friends</span>
+        </a>
+
+        <a
+          class="button-round social-button"
+          href="https://www.facebook.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+        >
+          <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+          <span class="tooltip">Share with friends</span>
+        </a>
+
+        <a
+          class="button-round social-button"
+          href="https://github.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+        >
+          <i class="fa-brands fa-github" aria-hidden="true"></i>
+          <span class="tooltip">Share with friends</span>
+        </a>
+      </div>
+
+      <span class="foot-mark">Quiz-game by group 8</span>
+    </footer>
   </body>
 </html>
