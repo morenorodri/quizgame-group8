@@ -104,29 +104,3 @@ if (resetButton) {
   });
 }
 // Dark mode toggle
-const themeToggle = document.querySelector("#theme-toggle");
-
-if (themeToggle) {
-  // Restore the saved theme
-  const savedTheme = localStorage.getItem("theme");
-
-  if (savedTheme === "dark") {
-    document.body.classList.add("dark-mode");
-    themeToggle.textContent = "L";
-    themeToggle.setAttribute("aria-label", "Switch to light mode");
-    themeToggle.setAttribute("aria-pressed", "true");
-  }
-
-  themeToggle.addEventListener("click", () => {
-    const isDarkMode = document.body.classList.toggle("dark-mode");
-
-    localStorage.setItem("theme", isDarkMode ? "dark" : "light");
-
-    themeToggle.textContent = isDarkMode ? "L" : "D";
-    themeToggle.setAttribute(
-      "aria-label",
-      isDarkMode ? "Switch to light mode" : "Switch to dark mode"
-    );
-    themeToggle.setAttribute("aria-pressed", String(isDarkMode));
-  });
-}
