@@ -1,16 +1,16 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="./css/base.css">
-    <link rel="stylesheet" href="./css/leading-board.css">
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/leading-board.css" />
 
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    >
+    />
 
     <script src="./js/leading-board.js" defer></script>
 
@@ -20,9 +20,7 @@
   <body>
     <!-- Header -->
     <header class="app-header">
-      <div class="js-logo" role="img" aria-label="JavaScript logo">
-        JS
-      </div>
+      <div class="js-logo" role="img" aria-label="JavaScript logo">JS</div>
 
       <button
         class="header-button"
@@ -42,14 +40,12 @@
       </section>
 
       <ol class="leaderboard-list" id="leaderboard-list"></ol>
-    </main>
 
+      <a href="./index.html" class="play-again-button"> Play Quiz Again </a>
+    </main>
+    <button id="reset-leaderboard" type="button">Reset Leaderboard</button>
     <!-- Back to start page -->
-    <a
-      href="./index.html"
-      class="back-button"
-      aria-label="Back to start"
-    >
+    <a href="./index.html" class="back-button" aria-label="Back to start">
       &times;
     </a>
 
@@ -92,5 +88,6 @@
 
       <span class="foot-mark">Quiz-game by group 8</span>
     </footer>
+    <script src="./js/theme.js"></script>
   </body>
 </html>

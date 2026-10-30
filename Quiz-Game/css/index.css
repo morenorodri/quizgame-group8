@@ -127,3 +127,19 @@ main {
     }    
 
 }
+.play-again-button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #f7df1e;
+  color: #1e1e1e;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 0.75rem;
+  transition: opacity 0.2s ease;
+}
+
+.play-again-button:hover {
+  opacity: 0.8;
+}
