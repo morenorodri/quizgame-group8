@@ -176,3 +176,7 @@ input:focus-visible {
     outline: .25rem solid;
     outline-offset: .25rem;
 }
+body.dark-mode {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
