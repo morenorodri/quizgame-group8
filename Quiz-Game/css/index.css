@@ -20,10 +20,55 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: .5rem;
+    overflow: hidden;
     width: 12.5rem; height: 12.5rem;
-        outline: .1rem solid;
+        background-color: var(--js-b-logo);
+        position: relative;
 }
 
+.logo-big-frame::before {
+    content: "J";
+    position: absolute;
+    opacity: 1;
+    scale: 1;
+    top: 4rem; left: 3rem;
+        font-size: 8rem;
+        font-weight: 700;
+        color: var(--js-b-letter);
+
+        animation: jGlidIn 1s ease-in;
+}
+
+@keyframes jGlidIn {
+    from {
+        left: 0rem;
+        opacity: 0;
+        scale: .75;
+    }
+}
+
+
+.logo-big-frame::after {
+    content: "S";
+    position: absolute;
+    opacity: 1;
+    scale: 1;
+    top: 4rem; right: 0rem;
+        font-size: 8rem;
+        font-weight: 700;
+        color: var(--js-b-letter);
+
+        animation: sFallsIn 1.25s ease-in;
+}
+
+@keyframes sFallsIn {
+    from {
+        top: -1rem;
+        opacity: 0;
+        scale: .75;
+    }
+}
 
 .form-player-name {
     display: flex;
@@ -47,9 +92,10 @@ main {
             justify-content: center;
             align-items: center;
             padding: .125rem;
-            border: .1rem solid;
+            border: .125rem solid red;
             border-radius: 50%;
             width: 1.5rem; height: 1.5rem;
+                background-color: var(--primary);
 
             .warning-small-icon {
                 width: 100%;
@@ -57,10 +103,14 @@ main {
         }
 
         .error-text {
+            padding: .25rem;
+            border-radius: .25rem;
                 font-size: .75rem;
                 font-weight: 600;
                 text-transform: uppercase;
                 letter-spacing: .05rem;
+                color: red;
+                background-color: var(--atten-bg);
         };
     }
 
@@ -77,7 +127,7 @@ main {
 
         .input-name {
             padding: .75rem 0rem;
-            border: .1rem solid;
+            border: .1rem solid #899489;
             border-radius: .5rem;
                 font-size: 1.25rem;
                 font-weight: 500;
@@ -91,8 +141,11 @@ main {
     /* button submit */
     .button-submit-name {
         padding: .75rem 0rem;
-        border: .1rem solid;
+        border: none;
         border-radius: .5rem;
+            color: var(--secondary);
+            background-color: var(--primary);
+            transition: background-color .3s ease-in-out;
             cursor: pointer;
 
         span {
@@ -103,6 +156,10 @@ main {
         }
     }
 
+    .button-submit-name:hover {
+            background-color: #ECD209;
+            transition: background-color .3s ease-in-out;
+    }
 }
 
 

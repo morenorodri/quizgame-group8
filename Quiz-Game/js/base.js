@@ -31,7 +31,6 @@ toplistButton.addEventListener("click", () => {
 // functions
 function toggleTheme() {
     const toggleStatus = themeToggle.getAttribute("aria-pressed") === "false";
-    console.log(toggleStatus);
 
     if (toggleStatus === false) {
         setLightMode();
