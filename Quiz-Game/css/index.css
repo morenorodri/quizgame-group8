@@ -171,19 +171,54 @@ main {
 /* others */
 .popup-info {
     padding: 1rem;
-    border: .1rem solid;
-        background-color: var(--surface);
+    border: .1rem solid #899489;
+    border-radius: .5rem;
+        background-color: var(--info-bg);
         position: absolute;
-        top: 4rem;
+        top: 7rem;
+        opacity: 0;
         margin: 0 auto;
+        transition: opacity .3s ease-in-out;
 
     .popup-info-content {
         display: flex;
         flex-direction: column;
         row-gap: 1rem;
-    }    
 
+        p {
+                font-weight: 500;
+                line-height: 1.25rem;
+        }
+
+        button {
+            padding: .75rem 0;
+            border: none;
+            border-radius: .5rem;
+                font-size: 1rem;
+                font-weight: 600;
+                line-height: 1;
+                color: var(--js-b-letter);
+                background-color: var(--secondary);
+                cursor: pointer;
+        }
+    }    
 }
+
+.popup-info::backdrop {
+    backdrop-filter: blur(.125rem);
+}
+
+.popup-info[open] {
+        opacity: 1;
+}
+
+@starting-style {
+    .popup-info[open] {
+        opacity: 0;
+    }
+}
+
+
 .play-again-button {
   display: inline-block;
   margin-top: 1rem;

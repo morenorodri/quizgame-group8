@@ -8,10 +8,12 @@
     --js-b-logo: #323330;
     --top-bg: #323330; 
     --atten-bg: #F5F5F5;
+    --info-bg: #F7DF1E;     
 }
 
-.dark-mode {
-    --surface: #323232;
+
+.dark-theme {
+    --surface: #323330;
     --js-b-letter: #F5F5F5;
     --js-b-logo: #2A2A28;
     --top-bg: #2A2A28; 
@@ -32,6 +34,7 @@ body {
 
         font-family: "Inter", sans-serif;
         background-color: var(--surface);    
+        transition: background-color .3s ease-in-out;
 }
 
 img { width: 100%; }
@@ -81,7 +84,7 @@ nav {
 footer {
     display: flex;
     flex-direction: column;
-    row-gap: 1rem;
+    row-gap: 2rem;
     padding-bottom: .5rem;
         /* outline kan kommenteras bort. Används för visuella skäl */
         /* outline: .1rem solid; */
@@ -126,7 +129,7 @@ footer {
 
     img {
         filter: brightness(96%);
-        transition: filter .3 ease-in-out;
+        transition: filter .3s ease-in-out;
     }
 }
 
@@ -139,28 +142,27 @@ footer {
 
     img {
         filter: brightness(96%);
-        transition: filter .3 ease-in-out;
+        transition: filter .3s ease-in-out;
     }
 }
 
 .nav-btn:hover, .toplist-btn:hover {
     img {
         filter: brightness(0) saturate(100%) invert(86%) sepia(87%) saturate(1487%) hue-rotate(352deg) brightness(101%) contrast(97%);
-        transition: filter .3 ease-in-out;
+        transition: filter .3s ease-in-out;
     }
 }
-
 
 .foot-social-btn {
     scale: 1;
     padding: .25rem;
         background-color: var(--primary);
-        transition: scale .3s ease-in-out, background-color .3 ease-in-out;
+        transition: scale .3s ease-in-out, background-color .3s ease-in-out;
 }
 
 .foot-social-btn:hover {
         background-color: #ECD209;
-        transition: background-color .3 ease-in-out;
+        transition: background-color .3s ease-in-out;
 }
 
 .nav-btn:hover, .toplist-btn:hover,
@@ -179,4 +181,8 @@ input:focus-visible {
 body.dark-mode {
   background-color: #1e1e1e;
   color: #ffffff;
+}
+
+a, button {
+    user-select: none;
 }

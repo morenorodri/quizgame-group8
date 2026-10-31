@@ -33,21 +33,21 @@ function toggleTheme() {
     const toggleStatus = themeToggle.getAttribute("aria-pressed") === "false";
 
     if (toggleStatus === false) {
-        setLightMode();
+        setLightTheme();
     
     } else if (toggleStatus === true) {
-        setDarkMode();
+        setDarkTheme();
     }
 }
 
-function setDarkMode() {
+function setDarkTheme() {
     themeToggle.setAttribute("aria-pressed", true);
-    document.body.classList.add("dark-mode");
+    document.body.classList.add("dark-theme");
     themeToggle.innerHTML = `<img src="./img/sun-light-icon.svg" alt="a sun for light mode switch"> `;
 }
 
-function setLightMode() {
+function setLightTheme() {
     themeToggle.setAttribute("aria-pressed", false);
-    document.body.classList.remove("dark-mode");
+    document.body.classList.remove("dark-theme");
     themeToggle.innerHTML = `<img src="./img/moon-light-icon.svg" alt="a moon for dark mode switch"> `;    
 }
