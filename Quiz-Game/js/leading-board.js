@@ -13,10 +13,24 @@ try {
 }
 
 // Keep only each player's best score
+<<<<<<< HEAD
 const playerResults = players.reduce((result, player) => {
   if (!player || typeof player.playerName !== "string") {
     return result;
   }
+=======
+const bestPlayers = Object.values(
+  players.reduce((result, player) => {
+    const name = player.playerName.trim().toLowerCase();
+
+    if (!result[name] || player.totalScore > result[name].totalScore) {
+      result[name] = player;
+    }
+
+    return result;
+  }, {}),
+);
+>>>>>>> leadingboard-page
 
   const name = player.playerName.trim().toLowerCase();
 
@@ -119,7 +133,13 @@ if (backButton) {
 const resetButton = document.querySelector("#reset-leaderboard");
 
 if (resetButton) {
+<<<<<<< HEAD
   resetButton.addEventListener("click", () => {
+=======
+  resetButton.addEventListener("click", function () {
+    alert("Reset button works!");
+
+>>>>>>> leadingboard-page
     const confirmReset = window.confirm(
       "Are you sure you want to clear all leaderboard results?",
     );
@@ -129,4 +149,10 @@ if (resetButton) {
       window.location.reload();
     }
   });
+} else {
+  console.error("Reset button not found!");
 }
+<<<<<<< HEAD
+=======
+// Dark mode toggle
+>>>>>>> leadingboard-page
