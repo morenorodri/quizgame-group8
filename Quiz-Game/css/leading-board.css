@@ -468,3 +468,8 @@ header {
 .play-again-button:hover {
   opacity: 0.8;
 }
+.no-players {
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 1rem;
+}
