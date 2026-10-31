@@ -6,15 +6,12 @@ const bestPlayers = Object.values(
   players.reduce((result, player) => {
     const name = player.playerName.trim().toLowerCase();
 
-    if (
-      !result[name] ||
-      player.totalScore > result[name].totalScore
-    ) {
+    if (!result[name] || player.totalScore > result[name].totalScore) {
       result[name] = player;
     }
 
     return result;
-  }, {})
+  }, {}),
 );
 
 const leaderBoard = document.querySelector("#leaderboard-list");
@@ -92,15 +89,19 @@ if (backButton) {
 const resetButton = document.querySelector("#reset-leaderboard");
 
 if (resetButton) {
-  resetButton.addEventListener("click", () => {
-    const confirmReset = confirm(
-      "Are you sure you want to clear all leaderboard results?"
+  resetButton.addEventListener("click", function () {
+    alert("Reset button works!");
+
+    const confirmReset = window.confirm(
+      "Are you sure you want to clear all leaderboard results?",
     );
 
     if (confirmReset) {
       localStorage.removeItem("playerStats");
-      location.reload();
+      window.location.reload();
     }
   });
+} else {
+  console.error("Reset button not found!");
 }
 // Dark mode toggle
