@@ -1,8 +1,23 @@
 :root {
     --surface: #F5F5F5;
     --primary: #F7DF1E;
-    --secondary: #1E1E1E;
+    --secondary: #323330;
     --tertiary: #FFFFFF;
+    --button-bg: #2A2A28;
+    --js-b-letter: #F5F5F5;
+    --js-b-logo: #323330;
+    --top-bg: #323330; 
+    --atten-bg: #F5F5F5;
+    --info-bg: #F7DF1E;     
+}
+
+
+.dark-theme {
+    --surface: #323330;
+    --js-b-letter: #F5F5F5;
+    --js-b-logo: #2A2A28;
+    --top-bg: #2A2A28; 
+    --atten-bg: #F5F5F5;
 }
 
 * {
@@ -18,25 +33,27 @@ body {
     height: 100dvh;
 
         font-family: "Inter", sans-serif;
-        background-color: #F5F5F5;    
+        background-color: var(--surface);    
+        transition: background-color .3s ease-in-out;
 }
 
-
+img { width: 100%; }
 
 /********** Shared Blocks **********/
 /************** header *************/
 header {
     display: flex;
         /* outline kan kommenteras bort. Används för visuella skäl */
-        outline: .1rem solid;
+        /* outline: .1rem solid; */
 }
 
 nav {
     display: flex;
     column-gap: .5rem;
     justify-content: end;
-    padding: 1rem .5rem 0rem;
+    padding: 1rem .5rem;
     width: 100%;
+        background-color: var(--secondary);
 }
 
 .small-img-frame {
@@ -46,16 +63,16 @@ nav {
     width: 3rem; height: 3rem;
     margin-right: auto;
         /* outline kan kommenteras bort. Används för visuella skäl */
-        outline: .1rem solid;
+        /* outline: .1rem solid; */
+}
+
+.frontpage-none {
+    display: none;
 }
 
 
 
 /************** main *************/
-main {
-
-}
-
 .main-wrapper {
     padding: 0rem .25rem;
 }
@@ -67,10 +84,10 @@ main {
 footer {
     display: flex;
     flex-direction: column;
-    row-gap: 1rem;
+    row-gap: 2rem;
     padding-bottom: .5rem;
         /* outline kan kommenteras bort. Används för visuella skäl */
-        outline: .1rem solid;
+        /* outline: .1rem solid; */
 }
 
 .foot-wrapper {
@@ -101,13 +118,58 @@ footer {
     width: 3rem; height: 3rem;
         cursor: pointer;
         /* outline kan kommenteras bort. Används för visuella skäl */
-        outline: .1rem solid;
+        /* outline: .1rem solid; */
 }
+
+
+.nav-btn {
+    scale: 1;
+        background-color: var(--button-bg);
+        transition: scale .3s ease-in-out;
+
+    img {
+        filter: brightness(96%);
+        transition: filter .3s ease-in-out;
+    }
+}
+
 
 .toplist-btn {
+    scale: 1;
     margin-right: auto;
+        background-color: var(--top-bg);
+        transition: scale .3s ease-in-out;
+
+    img {
+        filter: brightness(96%);
+        transition: filter .3s ease-in-out;
+    }
 }
 
+.nav-btn:hover, .toplist-btn:hover {
+    img {
+        filter: brightness(0) saturate(100%) invert(86%) sepia(87%) saturate(1487%) hue-rotate(352deg) brightness(101%) contrast(97%);
+        transition: filter .3s ease-in-out;
+    }
+}
+
+.foot-social-btn {
+    scale: 1;
+    padding: .25rem;
+        background-color: var(--primary);
+        transition: scale .3s ease-in-out, background-color .3s ease-in-out;
+}
+
+.foot-social-btn:hover {
+        background-color: #ECD209;
+        transition: background-color .3s ease-in-out;
+}
+
+.nav-btn:hover, .toplist-btn:hover,
+.foot-social-btn:hover {
+    scale: 1.1;
+        transition: scale .3s ease-in-out;
+}
 
 button:focus-visible,
 a:focus-visible,
@@ -119,4 +181,8 @@ input:focus-visible {
 body.dark-mode {
   background-color: #1e1e1e;
   color: #ffffff;
+}
+
+a, button {
+    user-select: none;
 }
