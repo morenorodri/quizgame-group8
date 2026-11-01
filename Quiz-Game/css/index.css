@@ -1,0 +1,237 @@
+/********** content **********/
+main {
+    padding-top: 4rem ;
+
+    .main-wrapper {
+        display: flex;
+        flex-direction: column;
+        row-gap: 4rem;
+        align-items: center;
+
+        padding: 0rem .5rem; /* change later in base.css */
+        position: relative;
+    }
+}
+
+
+
+/************** featuring *************/
+.logo-big-frame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .5rem;
+    overflow: hidden;
+    width: 12.5rem; height: 12.5rem;
+        background-color: var(--js-b-logo);
+        position: relative;
+}
+
+.logo-big-frame::before {
+    content: "J";
+    position: absolute;
+    opacity: 1;
+    scale: 1;
+    top: 4rem; left: 3rem;
+        font-size: 8rem;
+        font-weight: 700;
+        color: var(--js-b-letter);
+
+        animation: jGlidIn 1s ease-in;
+}
+
+@keyframes jGlidIn {
+    from {
+        left: 0rem;
+        opacity: 0;
+        scale: .75;
+    }
+}
+
+
+.logo-big-frame::after {
+    content: "S";
+    position: absolute;
+    opacity: 1;
+    scale: 1;
+    top: 4rem; right: 0rem;
+        font-size: 8rem;
+        font-weight: 700;
+        color: var(--js-b-letter);
+
+        animation: sFallsIn 1.25s ease-in;
+}
+
+@keyframes sFallsIn {
+    from {
+        top: -1rem;
+        opacity: 0;
+        scale: .75;
+    }
+}
+
+.form-player-name {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    width: 100%;
+        position: relative;
+
+    
+    /* error line of text */
+    .error-line {
+        display: flex;
+        align-items: center;
+        column-gap: .5rem;
+            position: absolute;
+            top: -2.5rem;
+            visibility: hidden;
+
+        .error-small-frame {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: .125rem;
+            border: .125rem solid red;
+            border-radius: 50%;
+            width: 1.5rem; height: 1.5rem;
+                background-color: var(--primary);
+
+            .warning-small-icon {
+                width: 100%;
+            }
+        }
+
+        .error-text {
+            padding: .25rem;
+            border-radius: .25rem;
+                font-size: .75rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: .05rem;
+                color: red;
+                background-color: var(--atten-bg);
+        };
+    }
+
+
+    /* input player name text */
+    .name-field {
+        display: flex;
+        flex-direction: column;
+        row-gap: .5rem;
+
+        .hide-label-line {
+            display: none;
+        }
+
+        .input-name {
+            padding: .75rem 0rem;
+            border: .1rem solid #899489;
+            border-radius: .5rem;
+                font-size: 1.25rem;
+                font-weight: 500;
+                line-height: 1rem;
+                letter-spacing: .05rem;
+                text-align: center;
+        }
+    }
+
+
+    /* button submit */
+    .button-submit-name {
+        padding: .75rem 0rem;
+        border: none;
+        border-radius: .5rem;
+            color: var(--secondary);
+            background-color: var(--primary);
+            transition: background-color .3s ease-in-out;
+            cursor: pointer;
+
+        span {
+                font-size: 1.5rem;
+                font-weight: 600;
+                line-height: 1;
+                letter-spacing: .05rem;
+        }
+    }
+
+    .button-submit-name:hover {
+            background-color: #ECD209;
+            transition: background-color .3s ease-in-out;
+    }
+}
+
+
+/* images */
+.questionmark-image {
+    width: 1.5rem; height: 1.5rem;
+}
+
+/* others */
+.popup-info {
+    padding: 1rem;
+    border: .1rem solid #899489;
+    border-radius: .5rem;
+        background-color: var(--info-bg);
+        position: absolute;
+        top: 7rem;
+        opacity: 0;
+        margin: 0 auto;
+        transition: opacity .3s ease-in-out;
+
+    .popup-info-content {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
+
+        p {
+                font-weight: 500;
+                line-height: 1.25rem;
+        }
+
+        button {
+            padding: .75rem 0;
+            border: none;
+            border-radius: .5rem;
+                font-size: 1rem;
+                font-weight: 600;
+                line-height: 1;
+                color: var(--js-b-letter);
+                background-color: var(--secondary);
+                cursor: pointer;
+        }
+    }    
+}
+
+.popup-info::backdrop {
+    backdrop-filter: blur(.125rem);
+}
+
+.popup-info[open] {
+        opacity: 1;
+}
+
+@starting-style {
+    .popup-info[open] {
+        opacity: 0;
+    }
+}
+
+
+.play-again-button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #f7df1e;
+  color: #1e1e1e;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 0.75rem;
+  transition: opacity 0.2s ease;
+}
+
+.play-again-button:hover {
+  opacity: 0.8;
+}

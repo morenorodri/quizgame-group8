@@ -1,0 +1,186 @@
+
+/* Result Page */
+
+/* Header */
+
+header {
+    background-color: var(--secondary);
+}
+
+.small-img-frame {
+    border: none;
+    outline: none;
+    margin-bottom: 10px;
+}
+
+.small-img-frame img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+
+header .button-round {
+    background-color: #333333;
+    border: none;
+    outline: none;
+}
+
+header .button-round img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+/* Main */
+
+.main-wrapper {
+    padding: 20px 15px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Result Card */
+
+.result-card {
+    background-color: var(--tertiary);
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 25px 15px;
+    text-align: center;
+}
+
+.trophy-img {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.result-card h1 {
+    font-size: 28px;
+    color: var(--secondary);
+    margin-bottom: 25px;
+}
+
+/* Score */
+
+.score-box {
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+.score {
+    width: 50%;
+}
+
+.score:first-child {
+    border-right: 1px solid #ddd;
+}
+
+.score h2 {
+    font-size: 28px;
+    margin-bottom: 5px;
+    color: var(--secondary);
+}
+
+.score p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Result Buttons */
+
+.result-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.join-btn,
+.restart-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.join-btn {
+    background-color: var(--primary);
+    color: var(--secondary);
+}
+
+.restart-btn {
+    background-color: var(--secondary);
+    color: var(--tertiary);
+}
+
+.join-btn img,
+.restart-btn img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+/* Footer */
+
+footer {
+    background-color: var(--tertiary);
+}
+
+footer .button-round {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e0e0e0;
+    color: var(--secondary);
+    text-decoration: none;
+    border: none;
+    outline: none; 
+    margin-top: 10px
+}
+
+footer .button-round img {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+}
+
+/* Keyboard focus */
+
+.button-round:focus-visible,
+.join-btn:focus-visible,
+.restart-btn:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 3px;
+}
+
+/* Responsive Design */
+
+@media (min-width: 600px) {
+    .main-wrapper {
+        padding: 30px 20px;
+    }
+}
+
+@media (min-width: 900px) {
+    .main-wrapper {
+        padding: 40px 20px;
+    }
+
+    .result-card h1 {
+        font-size: 32px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .main-wrapper {
+        max-width: 550px;
+    }
+}
