@@ -21,6 +21,3 @@ closeDialogBtn.addEventListener("click", () => {
 toplistButton.addEventListener("click", () => {
     window.location.href = "leading-board.html";
 });
-
-
-
