@@ -20,11 +20,6 @@ if (playerStats.length > 0) {
     correctAnswers.textContent = `${latestPlayer.questionsCorrect} / 10`;
     totalPoints.textContent = latestPlayer.totalScore;
 
-    // Show result in HTML
-    playerName.textContent = name;
-    correctAnswers.textContent = `${correct} / 10`;
-    totalPoints.textContent = score;
-
 } else {
 
     // Show default values if there is no result

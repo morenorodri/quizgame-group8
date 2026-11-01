@@ -5,29 +5,18 @@
 
 header {
     background-color: var(--secondary);
+    display: flex;
 }
 
 .small-img-frame {
     border: none;
     outline: none;
-    margin-bottom: 10px;
+    margin: 10px;
 }
 
 .small-img-frame img {
-    width: 45px;
-    height: 45px;
-    object-fit: contain;
-}
-
-header .button-round {
-    background-color: #333333;
-    border: none;
-    outline: none;
-}
-
-header .button-round img {
-    width: 28px;
-    height: 28px;
+    width: 65px;
+    height: 65px;
     object-fit: contain;
 }
 
@@ -129,10 +118,6 @@ header .button-round img {
 }
 
 /* Footer */
-
-footer {
-    background-color: var(--tertiary);
-}
 
 footer .button-round {
     display: flex;
