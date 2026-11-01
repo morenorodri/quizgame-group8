@@ -13,33 +13,22 @@ try {
 }
 
 // Keep only each player's best score
-<<<<<<< HEAD
 const playerResults = players.reduce((result, player) => {
+  // Skip invalid player records
   if (!player || typeof player.playerName !== "string") {
     return result;
   }
-=======
-const bestPlayers = Object.values(
-  players.reduce((result, player) => {
-    const name = player.playerName.trim().toLowerCase();
-
-    if (!result[name] || player.totalScore > result[name].totalScore) {
-      result[name] = player;
-    }
-
-    return result;
-  }, {}),
-);
->>>>>>> leadingboard-page
 
   const name = player.playerName.trim().toLowerCase();
 
+  // Skip empty player names
   if (!name) {
     return result;
   }
 
   const score = Number(player.totalScore) || 0;
 
+  // Keep the player's highest score
   if (!result[name] || score > (Number(result[name].totalScore) || 0)) {
     result[name] = player;
   }
@@ -47,20 +36,26 @@ const bestPlayers = Object.values(
   return result;
 }, {});
 
+// Convert the results into an array
 const bestPlayers = Object.values(playerResults);
+
+// ==========================================
+// DISPLAY LEADERBOARD
+// ==========================================
 
 // Find the leaderboard element
 const leaderBoard = document.querySelector("#leaderboard-list");
 
-// Display players from highest score to lowest
+// Sort players from highest score to lowest
 bestPlayers.sort(
   (a, b) => (Number(b.totalScore) || 0) - (Number(a.totalScore) || 0),
 );
 
-// Display a message if there are no players
 if (leaderBoard) {
+  // Clear existing leaderboard entries
   leaderBoard.replaceChildren();
 
+  // Display a message if there are no players
   if (bestPlayers.length === 0) {
     const message = document.createElement("p");
     message.textContent = "No players yet. Play a quiz to appear here!";
@@ -77,18 +72,19 @@ if (leaderBoard) {
       rank.textContent = String(index + 1);
       rank.classList.add("player-rank");
 
-      // Player information
+      // Player information container
       const playerInfo = document.createElement("div");
       playerInfo.classList.add("player-info");
 
       // Player name
       const name = document.createElement("span");
-      name.textContent = player.playerName;
+      name.textContent = player.playerName.trim();
       name.classList.add("player-name");
 
       // Correct answers
       const correct = document.createElement("span");
       const correctAnswers = Number(player.questionsCorrect) || 0;
+
       correct.textContent = `${correctAnswers} / 10 Correct`;
       correct.classList.add("player-correct");
 
@@ -118,9 +114,14 @@ if (leaderBoard) {
       leaderBoard.appendChild(item);
     });
   }
+} else {
+  console.error('Leaderboard element "#leaderboard-list" was not found.');
 }
 
-// Back button
+// ==========================================
+// BACK BUTTON
+// ==========================================
+
 const backButton = document.querySelector(".back-button");
 
 if (backButton) {
@@ -129,17 +130,14 @@ if (backButton) {
   });
 }
 
-// Reset leaderboard
+// ==========================================
+// RESET LEADERBOARD
+// ==========================================
+
 const resetButton = document.querySelector("#reset-leaderboard");
 
 if (resetButton) {
-<<<<<<< HEAD
   resetButton.addEventListener("click", () => {
-=======
-  resetButton.addEventListener("click", function () {
-    alert("Reset button works!");
-
->>>>>>> leadingboard-page
     const confirmReset = window.confirm(
       "Are you sure you want to clear all leaderboard results?",
     );
@@ -150,9 +148,5 @@ if (resetButton) {
     }
   });
 } else {
-  console.error("Reset button not found!");
+  console.error('Reset button "#reset-leaderboard" was not found.');
 }
-<<<<<<< HEAD
-=======
-// Dark mode toggle
->>>>>>> leadingboard-page
