@@ -1,83 +1,127 @@
 // Get saved players from localStorage
-const players = JSON.parse(localStorage.getItem("playerStats")) || [];
+const savedPlayers = localStorage.getItem("playerStats");
+let players = [];
+
+try {
+  players = savedPlayers ? JSON.parse(savedPlayers) : [];
+
+  if (!Array.isArray(players)) {
+    players = [];
+  }
+} catch (error) {
+  console.error("Could not read saved player statistics:", error);
+}
 
 // Keep only each player's best score
-const bestPlayers = Object.values(
-  players.reduce((result, player) => {
-    const name = player.playerName.trim().toLowerCase();
-
-    if (!result[name] || player.totalScore > result[name].totalScore) {
-      result[name] = player;
-    }
-
+const playerResults = players.reduce((result, player) => {
+  // Skip invalid player records
+  if (!player || typeof player.playerName !== "string") {
     return result;
-  }, {}),
-);
+  }
 
+  const name = player.playerName.trim().toLowerCase();
+
+  // Skip empty player names
+  if (!name) {
+    return result;
+  }
+
+  const score = Number(player.totalScore) || 0;
+
+  // Keep the player's highest score
+  if (!result[name] || score > (Number(result[name].totalScore) || 0)) {
+    result[name] = player;
+  }
+
+  return result;
+}, {});
+
+// Convert the results into an array
+const bestPlayers = Object.values(playerResults);
+
+// ==========================================
+// DISPLAY LEADERBOARD
+// ==========================================
+
+// Find the leaderboard element
 const leaderBoard = document.querySelector("#leaderboard-list");
 
 // Sort players from highest score to lowest
-bestPlayers.sort((a, b) => b.totalScore - a.totalScore);
+bestPlayers.sort(
+  (a, b) => (Number(b.totalScore) || 0) - (Number(a.totalScore) || 0),
+);
 
-// Show a message if there are no players
-if (bestPlayers.length === 0) {
-  leaderBoard.innerHTML = `
-    <p>No players yet.</p>
-    <a href="./index.html" class="play-quiz-link">Play a quiz again</a>
-  `;
+if (leaderBoard) {
+  // Clear existing leaderboard entries
+  leaderBoard.replaceChildren();
+
+  // Display a message if there are no players
+  if (bestPlayers.length === 0) {
+    const message = document.createElement("p");
+    message.textContent = "No players yet. Play a quiz to appear here!";
+
+    leaderBoard.appendChild(message);
+  } else {
+    // Display each player
+    bestPlayers.forEach((player, index) => {
+      const item = document.createElement("li");
+      item.classList.add("leaderboard-item");
+
+      // Player rank
+      const rank = document.createElement("span");
+      rank.textContent = String(index + 1);
+      rank.classList.add("player-rank");
+
+      // Player information container
+      const playerInfo = document.createElement("div");
+      playerInfo.classList.add("player-info");
+
+      // Player name
+      const name = document.createElement("span");
+      name.textContent = player.playerName.trim();
+      name.classList.add("player-name");
+
+      // Correct answers
+      const correct = document.createElement("span");
+      const correctAnswers = Number(player.questionsCorrect) || 0;
+
+      correct.textContent = `${correctAnswers} / 10 Correct`;
+      correct.classList.add("player-correct");
+
+      // Total score
+      const score = document.createElement("span");
+      score.textContent = `${Number(player.totalScore) || 0} Points`;
+      score.classList.add("player-score");
+
+      // Add a class based on the player's rank
+      if (index === 0) {
+        item.classList.add("first-place");
+      } else if (index === 1) {
+        item.classList.add("second-place");
+      } else if (index === 2) {
+        item.classList.add("third-place");
+      } else if (index === 3) {
+        item.classList.add("fourth-place");
+      } else if (index === 4) {
+        item.classList.add("fifth-place");
+      } else {
+        item.classList.add("other-place");
+      }
+
+      // Assemble the player card
+      playerInfo.append(name, correct);
+      item.append(rank, playerInfo, score);
+      leaderBoard.appendChild(item);
+    });
+  }
 } else {
-  // Display each player
-  bestPlayers.forEach((player, index) => {
-    const item = document.createElement("li");
-    item.classList.add("leaderboard-item");
-
-    // Player rank
-    const rank = document.createElement("span");
-    rank.textContent = index + 1;
-    rank.classList.add("player-rank");
-
-    // Player information
-    const playerInfo = document.createElement("div");
-    playerInfo.classList.add("player-info");
-
-    // Player name
-    const name = document.createElement("span");
-    name.textContent = player.playerName;
-    name.classList.add("player-name");
-
-    // Correct answers
-    const correct = document.createElement("span");
-    correct.textContent = `${player.questionsCorrect} / 10 Correct`;
-    correct.classList.add("player-correct");
-
-    // Total score
-    const score = document.createElement("span");
-    score.textContent = `${player.totalScore} Points`;
-    score.classList.add("player-score");
-
-    // Add a class based on the player's rank
-    if (index === 0) {
-      item.classList.add("first-place");
-    } else if (index === 1) {
-      item.classList.add("second-place");
-    } else if (index === 2) {
-      item.classList.add("third-place");
-    } else if (index === 3) {
-      item.classList.add("fourth-place");
-    } else if (index === 4) {
-      item.classList.add("fifth-place");
-    } else {
-      item.classList.add("other-place");
-    }
-
-    // Assemble the player card
-    playerInfo.append(name, correct);
-    item.append(rank, playerInfo, score);
-    leaderBoard.append(item);
-  });
+  console.error('Leaderboard element "#leaderboard-list" was not found.');
 }
 
-// Back button
+// ==========================================
+// BACK BUTTON
+// ==========================================
+
 const backButton = document.querySelector(".back-button");
 
 if (backButton) {
@@ -85,13 +129,15 @@ if (backButton) {
     window.history.back();
   });
 }
-// Reset leaderboard
+
+// ==========================================
+// RESET LEADERBOARD
+// ==========================================
+
 const resetButton = document.querySelector("#reset-leaderboard");
 
 if (resetButton) {
-  resetButton.addEventListener("click", function () {
-    alert("Reset button works!");
-
+  resetButton.addEventListener("click", () => {
     const confirmReset = window.confirm(
       "Are you sure you want to clear all leaderboard results?",
     );
@@ -102,6 +148,5 @@ if (resetButton) {
     }
   });
 } else {
-  console.error("Reset button not found!");
+  console.error('Reset button "#reset-leaderboard" was not found.');
 }
-// Dark mode toggle
