@@ -10,12 +10,12 @@ header {
 .small-img-frame {
     border: none;
     outline: none;
-    margin: 10px;
+    /* margin: 10px; */
 }
 
 .small-img-frame img {
-    width: 65px;
-    height: 65px;
+    /* width: 65px;
+    height: 65px; */
     object-fit: contain;
 }
 
