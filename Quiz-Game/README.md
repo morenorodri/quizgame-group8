@@ -2,7 +2,7 @@
 
 ## Team
 
-- Winfer
+- Winfer 
 - Dante
 - Alperen
 - Natneal
@@ -16,6 +16,10 @@ Resultat sparas i webbläsarens `localStorage`. På topplistan visas varje spela
 ## Skisser
 
 Lägg till era skisser här, till exempel som bilder i repot eller en länk till Figma.
+
+![vår design i figma](./img/readme-img/figmadesign.png)
+
+https://www.figma.com/design/BBJSA1rzPnEWlQgMBxtVnS/Untitled?node-id=0-1&t=Er0mO4KvuH2M8Xq4-1
 
 ## Publicerad app
 

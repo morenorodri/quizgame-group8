@@ -1,5 +1,4 @@
 // elements
-
 const dialogElement = document.querySelector("#dialogInfo");
 const openDialogBtn = document.querySelector("#openDialogInfo");
 const closeDialogBtn = document.querySelector("#closeDialogInfo");
@@ -8,8 +7,6 @@ const toplistButton = document.querySelector(".js-toplistBtn");
 
 
 // events
-
-
 openDialogBtn.addEventListener("click", () => {
     dialogElement.showModal();
 });
