@@ -1,6 +1,3 @@
-
-/* Result page */
-
 // Get HTML elements
 const playerName = document.getElementById("player-name");
 const correctAnswers = document.getElementById("correct-answers");
