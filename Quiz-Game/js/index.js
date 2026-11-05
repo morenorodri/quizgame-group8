@@ -1,3 +1,4 @@
+import { openToplist } from "./base.js";
 /*** elements ***/
 const attentionContent = document.querySelector(".js-errorLine");
 const attentionLine = document.querySelector("#error-playerName");
@@ -65,3 +66,9 @@ function getPlayerName() {
         window.location.href = "quiz.html";
     };
 }
+const toplistButton = document.querySelector(".js-toplistBtn");
+
+toplistButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    openToplist();
+});

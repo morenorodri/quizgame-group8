@@ -31,16 +31,17 @@ Vi planerade appens utseende i Figma innan vi började utveckla den. Här kan du
 
 ## 💭 Reflektion – styrkor och brister
 
-**Styrkor**
+### Styrkor
+
 - Vi delade upp arbetet mellan gruppmedlemmarna och ansvarade för olika delar av projektet.
 - Vi använde Git och GitHub för att samarbeta och hålla ordning på koden.
 - Vi skapade en fungerande quizapp med poängsystem, topplista och mörkt tema.
 
-**Brister och förbättringsområden**
+### Brister och förbättringsområden
+
 - Vi hade kunnat lägga mer tid på att testa appen och upptäcka buggar tidigare.
 - Vi hade kunnat förbättra kommunikationen och planeringen under vissa delar av arbetet.
-- Det finns alltid utrymme att förbättra användarupplevelsen och vidareutveckla funktionerna.
-
+- Vi hade kunnat vidareutveckla funktionerna för att förbättra användarupplevelsen.
 ## 🤖 AI-verktyg
 
 Vi använde AI som ett stöd under utvecklingsarbetet, bland annat för att förstå kod, felsöka problem och få förslag på lösningar.
