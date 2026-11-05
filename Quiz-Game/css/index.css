@@ -189,6 +189,7 @@ main {
         position: absolute;
         top: 7rem;
         opacity: 0;
+        width: min(100%, 1000px);
         margin: 0 auto;
         transition: opacity .3s ease-in-out;
 
