@@ -166,7 +166,7 @@ body > header.app-header {
   width: 3.25rem;
   height: 3.25rem;
   border-radius: 50%;
-  background-color: #999;
+  background-color: #6b6b6b;
   color: var(--tertiary);
   font-size: 1.125rem;
   font-weight: 800;

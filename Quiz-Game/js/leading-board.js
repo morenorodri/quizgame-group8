@@ -1,3 +1,4 @@
+
 // Get saved players from localStorage
 const savedPlayers = localStorage.getItem("playerStats");
 let players = [];
@@ -10,6 +11,11 @@ try {
   }
 } catch (error) {
   console.error("Could not read saved player statistics:", error);
+}
+
+// Rest syntax: collect players into an array
+function getFirstFive(...players) {
+  return players.slice(0, 5);
 }
 
 // Keep only each player's best score
@@ -36,8 +42,12 @@ const playerResults = players.reduce((result, player) => {
   return result;
 }, {});
 
-// Convert the results into an array
-const bestPlayers = Object.values(playerResults);
+// Destructuring: extract player properties
+const bestPlayers = Object.values(playerResults).map((player) => {
+  const { playerName, totalScore, questionsCorrect } = player;
+
+  return { playerName, totalScore, questionsCorrect };
+});
 
 // ==========================================
 // DISPLAY LEADERBOARD
@@ -46,24 +56,27 @@ const bestPlayers = Object.values(playerResults);
 // Find the leaderboard element
 const leaderBoard = document.querySelector("#leaderboard-list");
 
-// Sort players from highest score to lowest
-bestPlayers.sort(
+// Spread syntax: create a copy before sorting
+const sortedPlayers = [...bestPlayers].sort(
   (a, b) => (Number(b.totalScore) || 0) - (Number(a.totalScore) || 0),
 );
+
+// Rest syntax: get the five highest-scoring players
+const topFivePlayers = getFirstFive(...sortedPlayers);
 
 if (leaderBoard) {
   // Clear existing leaderboard entries
   leaderBoard.replaceChildren();
 
   // Display a message if there are no players
-  if (bestPlayers.length === 0) {
+  if (sortedPlayers.length === 0) {
     const message = document.createElement("p");
     message.textContent = "No players yet. Play a quiz to appear here!";
 
     leaderBoard.appendChild(message);
   } else {
     // Display each player
-    bestPlayers.forEach((player, index) => {
+    sortedPlayers.forEach((player, index) => {
       const item = document.createElement("li");
       item.classList.add("leaderboard-item");
 
