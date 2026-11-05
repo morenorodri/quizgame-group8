@@ -1,30 +1,48 @@
-# Quiz Game – Group 8
+# 🎮 Quiz Game – Group 8
 
-## Team
+## 👥 Team
 
-- Winfer 
+- Winfer
 - Dante
 - Alperen
-- Natneal
+- Natnael
 
-## Om appen
+## 📱 Om appen
 
-Quiz Game är ett JavaScript-quiz där spelaren svarar på tio frågor med fyra svarsalternativ. Spelaren skriver först in sitt namn. Varje fråga har en tidsgräns på 20 sekunder, och rätt svar ger poäng utifrån hur mycket tid som är kvar. När quizet är klart visas resultatet med antal rätt och totalpoäng.
+Quiz Game är en interaktiv quizapp byggd med HTML, CSS och JavaScript. Spelaren börjar med att skriva in sitt namn och svarar sedan på tio frågor med fyra svarsalternativ.
 
-Resultat sparas i webbläsarens `localStorage`. På topplistan visas varje spelares bästa resultat, sorterade efter poäng. Appen har också ett mörkt tema som sparas mellan besöken.
+Varje fråga har en tidsgräns på 20 sekunder. Rätt svar ger poäng baserat på hur mycket tid spelaren har kvar.
 
-## Skisser
+När quizet är klart visas resultatet med antal rätta svar och totalpoäng.
 
-Lägg till era skisser här, till exempel som bilder i repot eller en länk till Figma.
+Resultaten sparas i webbläsarens `localStorage`. På topplistan visas varje spelares bästa resultat, sorterade efter poäng. Appen har även ett mörkt tema som sparas mellan besöken.
 
-![vår design i figma](./img/readme-img/figmadesign.png)
+## 🎨 Design och skisser
 
-https://www.figma.com/design/BBJSA1rzPnEWlQgMBxtVnS/Untitled?node-id=0-1&t=Er0mO4KvuH2M8Xq4-1
+Vi planerade appens utseende i Figma innan vi började utveckla den. Här kan du se vår designskiss:
 
-## Publicerad app
+![Vår design i Figma](./img/readme-img/figmadesign.png)
 
-[Öppna Quiz Game](https://quizgame-groupeight.netlify.app/)
+[Öppna vårt Figma-projekt](https://www.figma.com/design/BBJSA1rzPnEWlQgMBxtVnS/Untitled?node-id=0-1&t=Er0mO4KvuH2M8Xq4-1)
 
-## Reflektion över styrkor och brister
+## 🚀 Publicerad app
 
-## AI-verktyg
+[**Spela Quiz Game här**](https://quizgame-groupeight.netlify.app/)
+
+## 💭 Reflektion – styrkor och brister
+
+**Styrkor**
+- Vi delade upp arbetet mellan gruppmedlemmarna och ansvarade för olika delar av projektet.
+- Vi använde Git och GitHub för att samarbeta och hålla ordning på koden.
+- Vi skapade en fungerande quizapp med poängsystem, topplista och mörkt tema.
+
+**Brister och förbättringsområden**
+- Vi hade kunnat lägga mer tid på att testa appen och upptäcka buggar tidigare.
+- Vi hade kunnat förbättra kommunikationen och planeringen under vissa delar av arbetet.
+- Det finns alltid utrymme att förbättra användarupplevelsen och vidareutveckla funktionerna.
+
+## 🤖 AI-verktyg
+
+Vi använde AI som ett stöd under utvecklingsarbetet, bland annat för att förstå kod, felsöka problem och få förslag på lösningar.
+
+AI användes som ett hjälpmedel, men vi ansvarade själva för att granska, förstå och anpassa koden till projektet.
